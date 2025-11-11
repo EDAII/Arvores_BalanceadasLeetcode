@@ -98,6 +98,13 @@ O processo de serialização e desserialização é eficiente, com **complexidad
 **Nível:** Difícil  
 **Implementação:** Código 4  
 
+O problema pede a implementação de duas funções: **serialização** e **desserialização** de uma árvore binária. A **serialização** converte a árvore binária em uma string, e a **desserialização** reconstrói a árvore a partir dessa string.
+
+Na função de **serialização**, o objetivo é converter a árvore binária em uma representação textual. Para isso, utilizamos uma abordagem de **busca em largura (BFS)**, onde percorremos a árvore nível por nível. Em cada nó, registramos seu valor. Se o nó for `None`, registramos um marcador especial, como `"null"`, para indicar a ausência de um nó. Isso garante que a estrutura da árvore, incluindo os nós ausentes, seja preservada.
+
+A função de **desserialização** tem a tarefa de reconstruir a árvore binária a partir da string gerada pela serialização. A string é convertida de volta para uma lista de valores, e, em seguida, a árvore é reconstruída usando esses valores na mesma ordem em que foram processados na serialização. Durante esse processo, se encontrarmos um valor `"null"`, sabemos que devemos atribuir `None` àquele nó, indicando a ausência de um nó.
+
+Essa abordagem garante que a árvore original seja reconstruída exatamente da mesma forma após a serialização e desserialização. Ao utilizar uma busca em largura, a função é capaz de gerar uma string que reflete fielmente a estrutura da árvore, permitindo que a desserialização reconstrua a árvore corretamente.
 
 
 <p align="center">
