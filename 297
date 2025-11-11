@@ -1,0 +1,60 @@
+class Codec:
+
+    def serialize(self, root):
+        """Encodes a tree to a single string."""
+        # Usando uma abordagem de BFS (breadth-first traversal) para serializar a árvore
+        if not root:
+            return "[]"
+        
+        result = []
+        queue = [root]
+        
+        while queue:
+            node = queue.pop(0)
+            if node:
+                result.append(str(node.val))
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                result.append("null")
+        
+        # Remove o final com "null" porque esses são valores irrelevantes (não precisamos de nós nulos extras no final)
+        while result[-1] == "null":
+            result.pop()
+        
+        return "[" + ",".join(result) + "]"
+    
+    def deserialize(self, data):
+        """Decodes your encoded data to tree."""
+        if data == "[]":
+            return None
+        
+        # Converte a string de volta para uma lista de nós
+        values = data[1:-1].split(",")
+        
+        if not values:
+            return None
+        
+        root = TreeNode(int(values[0]))
+        queue = [root]
+        index = 1
+        
+        while queue:
+            node = queue.pop(0)
+            
+            if index < len(values) and values[index] != "null":
+                node.left = TreeNode(int(values[index]))
+                queue.append(node.left)
+            index += 1
+            
+            if index < len(values) and values[index] != "null":
+                node.right = TreeNode(int(values[index]))
+                queue.append(node.right)
+            index += 1
+        
+        return root
+
+# Exemplo de uso:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))

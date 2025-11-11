@@ -74,14 +74,22 @@ A saída é uma lista de listas, onde cada lista contém os valores dos nós de 
 
 ---
 
-## 🔹 Problema 3:   
+## 🔹 Problema 3:   297. Serialize and Deserialize Binary Tree
 **Nível:** Difícil  
 **Implementação:** Código 3  
+
+O problema exige a implementação de funções para **serializar** e **desserializar** uma árvore binária. A **serialização** é o processo de converter a árvore em uma string, de forma que ela possa ser armazenada ou transmitida, enquanto a **desserialização** reconstrói a árvore original a partir dessa string.
+
+A estratégia utilizada é baseada em uma **traversal em largura (BFS)**. Para a serialização, percorremos a árvore nível por nível. A cada nó visitado, adicionamos seu valor à string e, quando encontramos um nó nulo (`None`), representamos com o marcador `"null"`. Isso nos permite capturar a estrutura completa da árvore, incluindo as ausências de nós. Durante a desserialização, a string gerada pela serialização é dividida em valores e, com base nessa sequência, reconstruímos a árvore. Usamos uma fila para garantir que a ordem dos nós seja preservada e, conforme iteramos sobre a lista de valores, recriamos os nós e suas conexões.
+
+Por exemplo, para uma árvore com a entrada `[1,2,3,null,null,4,5]`, a serialização gera a string `"1,2,null,null,3,4,null,null,5"`. Durante a desserialização, essa string é convertida de volta na árvore original, com os valores atribuídos aos nós na mesma ordem.
+
+O processo de serialização e desserialização é eficiente, com **complexidade de tempo O(n)**, onde `n` é o número de nós na árvore, pois cada nó é visitado uma única vez em ambos os processos. A **complexidade de espaço também é O(n)**, devido à armazenagem da string serializada e à fila utilizada na desserialização.
 
 
 
 <p align="center">
-  <img src="Trabalho1_EDAII\assets\.png" alt="Print da Questão " width="600"/>
+  <img src="assets\297.png" alt="Print da Questão 297" width="600"/>
 </p>    
 
 ---
@@ -105,9 +113,10 @@ A saída é uma lista de listas, onde cada lista contém os valores dos nós de 
 ---
 
 ## Uso
-Necessário compilador **C99 ou superior**.  
-Exemplo para compilar o primeiro problema:  
+Necessário compilador **Python 3 ou superior**.  
+Exemplo para compilar o segundo problema:  
 
 ```bash
-$ gcc ./problem1.c -o problem1
-$ ./problem1
+$ python level_order_traversal.py
+$ python3 level_order_traversal.py
+
