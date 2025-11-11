@@ -24,29 +24,14 @@ O projeto consiste na resolução de questões do LeetCode que envolvem **arvore
 **Nível:** Médio  
 **Implementação:** Código 1  
 
-Dado a root (raiz) de uma árvore binária de busca (BST), balanceie a árvore para garantir que a diferença de altura entre as subárvores de cada nó nunca seja maior que 1 e retorne a raiz da árvore balanceada.
+Dado a raiz de uma árvore binária de busca (BST), o objetivo é balancear a árvore para garantir que a diferença de altura entre as subárvores de cada nó não seja maior que 1, e retornar a raiz da árvore balanceada.
 
-Os passos do algoritmo para balancear a árvore são:
+Para balancear a árvore, primeiro realizamos uma **travessia in-order**, onde percorremos a árvore e criamos uma lista com os valores dos nós em ordem crescente. A partir dessa lista ordenada, reconstruímos a árvore binária de busca, escolhendo o valor do meio da lista como a raiz. Isso garante que a árvore seja balanceada, pois ao escolher o meio da lista, dividimos a árvore igualmente em subárvores esquerda e direita. Repetimos esse processo para as subárvores esquerda e direita até que todos os nós estejam na nova árvore balanceada.
 
-Fazer uma travessia in-order: Percorra a árvore e crie uma lista com os valores dos nós em ordem crescente.
+A função **inorder** realiza a travessia in-order e retorna os valores dos nós ordenados. A função **sortedArrayToBST** cria uma árvore balanceada a partir dessa lista ordenada, e a função **balanceBST** utiliza essas funções para balancear a árvore e retornar a nova raiz balanceada.
 
-Construir a árvore balanceada: A partir da lista ordenada, construa uma nova árvore binária de busca. A cada passo, o valor do meio da lista é escolhido como a raiz, garantindo que a árvore seja balanceada.
+A complexidade do tempo é O(n), onde n é o número de nós, pois percorremos todos os nós da árvore para realizar a travessia e reconstruir a árvore balanceada. O espaço é O(n), devido à lista auxiliar que armazena os valores e à pilha de chamadas recursivas.
 
-Repetir o processo: Continue criando as subárvores à esquerda e à direita recursivamente até que todos os nós estejam na nova árvore balanceada.
-
-Algoritmo implementado:
-
-Função inorder(node): Realiza uma travessia in-order e retorna os valores dos nós em ordem crescente.
-
-Função sortedArrayToBST(nums): Cria uma árvore balanceada a partir da lista ordenada, escolhendo o valor do meio para ser a raiz.
-
-Função balanceBST(root): Usa as funções anteriores para balancear a árvore e retornar a nova raiz balanceada.
-
-Complexidade:
-
-Tempo: O tempo é O(n), onde n é o número de nós, devido à travessia da árvore e à reconstrução da árvore balanceada.
-
-Espaço: O espaço é O(n), devido à lista auxiliar e à pilha de chamadas recursivas.
 
 
 <p align="center">
