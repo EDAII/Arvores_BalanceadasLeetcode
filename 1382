@@ -1,0 +1,28 @@
+class Solution(object):
+    def balanceBST(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: Optional[TreeNode]
+        """
+        # Passo 1: Fazer a travessia in-order para obter os valores em ordem crescente
+        def inorder(node):
+            if not node:
+                return []
+            # Recursivamente fazer a travessia in-order
+            return inorder(node.left) + [node.val] + inorder(node.right)
+        
+        # Passo 2: Função para construir a árvore balanceada a partir da lista ordenada
+        def sortedArrayToBST(nums):
+            if not nums:
+                return None
+            mid = len(nums) // 2
+            root = TreeNode(nums[mid])  # O meio da lista é a raiz
+            # Construir as subárvores esquerda e direita
+            root.left = sortedArrayToBST(nums[:mid])
+            root.right = sortedArrayToBST(nums[mid+1:])
+            return root
+        
+        # Obter a lista de valores ordenados
+        sorted_values = inorder(root)
+        # Construir a árvore balanceada e retornar
+        return sortedArrayToBST(sorted_values)

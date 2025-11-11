@@ -1,1 +1,113 @@
 # Arvores_BalanceadasLeetcode
+# EDA II Leetcode
+
+## Leetcode  
+**Número da Lista:** 3
+**Conteúdo da Disciplina:** Arvores Balanceadas
+
+---
+
+## 👥 Alunos
+| Matrícula   | Aluno                      |
+|-------------|-----------------------------|
+| 21/1061897  | Igor de Sousa Justino      |
+| 20/2016364  | Guilherme Coelho Mendonça  |
+
+---
+
+## Sobre
+O projeto consiste na resolução de questões do LeetCode que envolvem **arvores balanceadas**
+
+---
+
+## 🔹 Problema 1: 1382. Balance a Binary Search Tree
+**Nível:** Médio  
+**Implementação:** Código 1  
+
+Dado a root (raiz) de uma árvore binária de busca (BST), balanceie a árvore para garantir que a diferença de altura entre as subárvores de cada nó nunca seja maior que 1 e retorne a raiz da árvore balanceada.
+
+Os passos do algoritmo para balancear a árvore são:
+
+Fazer uma travessia in-order: Percorra a árvore e crie uma lista com os valores dos nós em ordem crescente.
+
+Construir a árvore balanceada: A partir da lista ordenada, construa uma nova árvore binária de busca. A cada passo, o valor do meio da lista é escolhido como a raiz, garantindo que a árvore seja balanceada.
+
+Repetir o processo: Continue criando as subárvores à esquerda e à direita recursivamente até que todos os nós estejam na nova árvore balanceada.
+
+Algoritmo implementado:
+
+Função inorder(node): Realiza uma travessia in-order e retorna os valores dos nós em ordem crescente.
+
+Função sortedArrayToBST(nums): Cria uma árvore balanceada a partir da lista ordenada, escolhendo o valor do meio para ser a raiz.
+
+Função balanceBST(root): Usa as funções anteriores para balancear a árvore e retornar a nova raiz balanceada.
+
+Complexidade:
+
+Tempo: O tempo é O(n), onde n é o número de nós, devido à travessia da árvore e à reconstrução da árvore balanceada.
+
+Espaço: O espaço é O(n), devido à lista auxiliar e à pilha de chamadas recursivas.
+
+
+<p align="center">
+  <img src="assets\1382.png" alt="Print da Questão 1382" width="600"/>
+</p>    
+
+---
+
+## 🔹 Problema 2:  102. Binary Tree Level Order Traversal
+**Nível:** Médio  
+**Implementação:** Código 2  
+
+O problema exige a implementação da **traversal por nível** de uma árvore binária, ou seja, percorrer os nós da árvore da esquerda para a direita, nível por nível. Esse processo é uma aplicação da **busca em largura (BFS)**, onde a árvore é tratada como um grafo acíclico, já que uma árvore é um tipo específico de grafo.
+
+O algoritmo utiliza uma **fila** para percorrer a árvore. A cada iteração, os nós de um nível são processados, seus valores são armazenados e seus filhos são adicionados à fila para o próximo nível. Esse processo é repetido até que todos os nós sejam visitados.
+
+A saída é uma lista de listas, onde cada lista contém os valores dos nós de um nível específico da árvore. O algoritmo é eficiente e usa a estrutura de **BFS** para garantir a travessia da árvore de forma organizada e ordenada por níveis.
+
+
+
+
+<p align="center">
+  <img src="assets\102.png" alt="Print da Questão 102" width="600"/>
+</p>    
+
+---
+
+## 🔹 Problema 3:   
+**Nível:** Difícil  
+**Implementação:** Código 3  
+
+
+
+<p align="center">
+  <img src="Trabalho1_EDAII\assets\.png" alt="Print da Questão " width="600"/>
+</p>    
+
+---
+
+## 🔹 Problema 4:   
+**Nível:** Difícil  
+**Implementação:** Código 4  
+
+
+
+<p align="center">
+  <img src="Trabalho1_EDAII\assets\.png" alt="Print da Questão " width="600"/>
+</p>    
+
+---
+
+## Instalação
+**Linguagem:** Phyton
+**Framework:** Nenhum  
+
+---
+
+## Uso
+Necessário compilador **C99 ou superior**.  
+Exemplo para compilar o primeiro problema:  
+
+```bash
+$ gcc ./problem1.c -o problem1
+$ ./problem1

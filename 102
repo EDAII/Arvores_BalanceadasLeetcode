@@ -1,0 +1,28 @@
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: List[List[int]]
+        """
+        if not root:
+            return []  # Se a árvore estiver vazia, retorne uma lista vazia
+        
+        result = []  # Lista para armazenar a ordem de níveis
+        queue = [root]  # Inicializamos a fila com a raiz
+        
+        while queue:
+            level = []  # Lista para armazenar os valores de um nível
+            level_length = len(queue)  # Número de nós no nível atual
+            
+            for _ in range(level_length):
+                node = queue.pop(0)  # Remove o primeiro nó da fila
+                level.append(node.val)  # Adiciona o valor do nó ao nível
+                
+                if node.left:
+                    queue.append(node.left)  # Adiciona o filho esquerdo à fila
+                if node.right:
+                    queue.append(node.right)  # Adiciona o filho direito à fila
+            
+            result.append(level)  # Adiciona o nível processado à lista final
+        
+        return result  # Retorna a lista com todos os níveis
