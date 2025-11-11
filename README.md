@@ -94,14 +94,14 @@ O processo de serialização e desserialização é eficiente, com **complexidad
 
 ---
 
-## 🔹 Problema 4:   
+## 🔹 Problema 4:   124. Binary Tree Maximum Path Sum
 **Nível:** Difícil  
 **Implementação:** Código 4  
 
 
 
 <p align="center">
-  <img src="Trabalho1_EDAII\assets\.png" alt="Print da Questão " width="600"/>
+  <img src="assets\124.png" alt="Print da Questão 124" width="600"/>
 </p>    
 
 ---
